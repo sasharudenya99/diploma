@@ -27,7 +27,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
-
+import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
   declarations: [
@@ -63,8 +63,12 @@ import { FormsModule } from '@angular/forms';
     MatCheckboxModule,
     MatInputModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    AppRoutingModule
   ],
+  entryComponents: [LectorModalComponent, TableForStudentsAndLectorsComponent, AddGroupComponent,
+    DeleteLectorComponent,
+    EditLectorComponent],
   providers: [],
   exports: [
     NavbarComponent,
@@ -74,6 +78,7 @@ import { FormsModule } from '@angular/forms';
     GroupTableComponent,
     TableForStudentsAndLectorsComponent,
     MainComponent,
+    AddGroupComponent,
     StudentsComponent,
     ResetThePasswordComponent,
     DeleteLectorComponent,

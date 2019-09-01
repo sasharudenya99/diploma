@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminModule } from './adminPanel/admin.modal';
+import { LoginModule } from './login/login.module';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { AdminModule } from './adminPanel/admin.modal';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AdminModule
+    AdminModule,
+    LoginModule
   ],
   providers: [],
   bootstrap: [AppComponent]

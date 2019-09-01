@@ -5,6 +5,7 @@ import { MainComponent } from './adminPanel/main/main.component';
 import { GroupComponent } from './adminPanel/group/group.component';
 import { StudentsComponent } from './adminPanel/students/students.component';
 import { ResetThePasswordComponent } from './adminPanel/reset-the-password/reset-the-password.component';
+import { LoginComponent } from './login/login.component';
 
 
 const routes: Routes = [
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path: 'lectors', component: LectorsComponent },
   {path: 'students', component: StudentsComponent },
   {path: 'resetPassword', component: ResetThePasswordComponent},
-  {path: 'groups', component: GroupComponent}
+  {path: 'groups', component: GroupComponent},
+  {path: 'login', component: LoginComponent}
 ];
 
 @NgModule({
