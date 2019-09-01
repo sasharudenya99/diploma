@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import { AddGroupComponent } from '../../modal/add-group/add-group.component';
+import { AddGroupComponent } from '../modal/add-group/add-group.component';
+
 
 export class Group {
   numb: number;

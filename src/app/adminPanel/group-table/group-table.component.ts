@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatSort, MatPaginator, MatDialog } from '@angular/material';
-import { DeleteLectorComponent } from '../../modal/delete-lector/delete-lector.component';
-import { AddGroupComponent } from '../../modal/add-group/add-group.component';
+import { DeleteLectorComponent } from '../modal/delete-lector/delete-lector.component';
+import { AddGroupComponent } from '../modal/add-group/add-group.component';
+
 
 export interface PeriodicElement {
   name: string;

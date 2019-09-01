@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LectorsComponent } from './adminPanel/lectors/lectors.component';
-import { StudentsComponent } from './students/students.component';
 import { MainComponent } from './adminPanel/main/main.component';
-import { ResetThePasswordComponent } from './reset-the-password/reset-the-password.component';
 import { GroupComponent } from './adminPanel/group/group.component';
+import { StudentsComponent } from './adminPanel/students/students.component';
+import { ResetThePasswordComponent } from './adminPanel/reset-the-password/reset-the-password.component';
 
 
 const routes: Routes = [

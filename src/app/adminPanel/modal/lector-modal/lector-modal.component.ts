@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { LectorData } from '../../adminPanel/lectors/lectors.component';
+import { LectorData } from '../../table-for-students-and-lectors/table-for-students-and-lectors.component';
+
 
 @Component({
   selector: 'app-lector-modal',

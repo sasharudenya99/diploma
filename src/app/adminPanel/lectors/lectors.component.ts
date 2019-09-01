@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
-import { LectorModalComponent } from '../../modal/lector-modal/lector-modal.component';
+import { LectorModalComponent } from '../modal/lector-modal/lector-modal.component';
 
 export interface LectorData {
   login: string;
