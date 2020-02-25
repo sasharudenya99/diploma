@@ -1,0 +1,4 @@
+<h1>Лекции</h1>
+<app-item-table [isLab]="false" [dataSource]="this.loadLecture(getParamIdFromUrl())"></app-item-table>
+<h1>Лабораторные работы</h1>
+<app-item-table [isLab]="true" [dataSource]="this.loadLab(getParamIdFromUrl())"></app-item-table>

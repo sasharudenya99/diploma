@@ -2,9 +2,9 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
-  selector: 'app-delete-lector',
-  templateUrl: './delete-lector.component.html',
-  styleUrls: ['./delete-lector.component.css']
+  selector: 'app-delete-person',
+  templateUrl: './delete-person.component.html',
+  styleUrls: ['./delete-person.component.css']
 })
 export class DeleteLectorComponent implements OnInit {
 

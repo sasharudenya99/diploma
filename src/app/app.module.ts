@@ -4,19 +4,32 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminModule } from './adminPanel/admin.modal';
 import { LoginModule } from './login/login.module';
-
+import { ControlModule } from './control/control.module';
+import { HttpClientModule } from '@angular/common/http';
+import { StudentServiceData } from './sharedService/student.data.service';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { ProfessorServiceData } from './sharedService/professor.data.service';
+import { GroupServiceData } from './sharedService/group.data.service';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { SignupModule } from './signup/signup.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AdminModule,
-    LoginModule
+    LoginModule,
+    ControlModule,
+    HttpClientModule,
+    MatProgressSpinnerModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    SignupModule
   ],
-  providers: [],
+  providers: [ StudentServiceData, ProfessorServiceData, GroupServiceData],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

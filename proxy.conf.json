@@ -1,0 +1,11 @@
+{
+    "/api": {
+      "target": "https://educats.azurewebsites.net",
+      "secure": false,
+      "pathRewrite": {
+        "^/api": ""
+      },
+        "changeOrigin": true
+    }
+    
+}

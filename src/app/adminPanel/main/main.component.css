@@ -41,3 +41,7 @@ p {
     padding-left: 50px;
     border-left:1px solid lavender;
 }
+
+.mat-progress-spinner{
+    display: inline;
+}

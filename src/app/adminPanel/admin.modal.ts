@@ -7,11 +7,10 @@ import { LectorModalComponent } from './modal/lector-modal/lector-modal.componen
 import { GroupComponent } from './group/group.component';
 import { AddGroupComponent } from './modal/add-group/add-group.component';
 import { GroupTableComponent } from './group-table/group-table.component';
-import { TableForStudentsAndLectorsComponent } from './table-for-students-and-lectors/table-for-students-and-lectors.component';
 import { MainComponent } from './main/main.component';
 import { StudentsComponent } from './students/students.component';
 import { ResetThePasswordComponent } from './reset-the-password/reset-the-password.component';
-import { DeleteLectorComponent } from './modal/delete-lector/delete-lector.component';
+import { DeleteLectorComponent } from './modal/delete-person/delete-person.component';
 import { EditLectorComponent } from './modal/edit-lector/edit-lector.component';
 import { ListOfSubjectComponent } from './list-of-subject/list-of-subject.component';
 
@@ -26,8 +25,11 @@ import {MatSliderModule} from '@angular/material/slider';
 import {MatDialogModule} from '@angular/material/dialog';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
+import { TableForStudentsComponent } from './table-for-students/table-for-students.component';
+import { TableForLectorsComponent } from './table-for-lectors/table-for-lectors.component';
 
 @NgModule({
   declarations: [
@@ -37,13 +39,14 @@ import { AppRoutingModule } from '../app-routing.module';
     GroupComponent,
     AddGroupComponent,
     GroupTableComponent,
-    TableForStudentsAndLectorsComponent,
     MainComponent,
     StudentsComponent,
     ResetThePasswordComponent,
     DeleteLectorComponent,
     EditLectorComponent,
-    ListOfSubjectComponent
+    ListOfSubjectComponent,
+    TableForStudentsComponent,
+    TableForLectorsComponent
   ],
   imports: [
     FormsModule,
@@ -64,9 +67,11 @@ import { AppRoutingModule } from '../app-routing.module';
     MatInputModule,
     MatTableModule,
     MatPaginatorModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatProgressSpinnerModule,
+    BrowserAnimationsModule,
   ],
-  entryComponents: [LectorModalComponent, TableForStudentsAndLectorsComponent, AddGroupComponent,
+  entryComponents: [LectorModalComponent, TableForStudentsComponent, TableForLectorsComponent, AddGroupComponent,
     DeleteLectorComponent,
     EditLectorComponent],
   providers: [],
@@ -76,7 +81,8 @@ import { AppRoutingModule } from '../app-routing.module';
     LectorModalComponent,
     GroupComponent, AddGroupComponent,
     GroupTableComponent,
-    TableForStudentsAndLectorsComponent,
+    TableForStudentsComponent,
+    TableForLectorsComponent,
     MainComponent,
     AddGroupComponent,
     StudentsComponent,
