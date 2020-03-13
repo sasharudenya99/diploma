@@ -3,41 +3,46 @@ import { LectureService } from 'src/app/service/lecture.service';
 import { ActivatedRoute } from '@angular/router';
 import { MatTableDataSource } from '@angular/material';
 import { LabService } from 'src/app/service/lab.service';
+import { flatMap } from 'rxjs/operators';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
-  styleUrls: ['./item.component.css']
+  styleUrls: ['./item.component.css'],
 })
 export class ItemComponent implements OnInit {
 
   dataSourceForLab = new MatTableDataSource<object>();
   dataSourceForLecture = new MatTableDataSource<object>();
+  isLoadData = false;
 
-  constructor(private lectureService: LectureService, private labService: LabService,
-              private route: ActivatedRoute) { }
+  constructor(private lectureService: LectureService, private labService: LabService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.getParamIdFromUrl();
   }
 
-  loadLecture(subjectId) {
-    this.lectureService.getLectures(subjectId).subscribe(items => {
-      this.dataSourceForLecture.data = items.Lectures;
-    });
-    return this.dataSourceForLecture;
+  isDataSourceForLecture() {
+    return this.dataSourceForLecture.data.length != 0;
   }
 
-  loadLab(subjectId) {
-    this.labService.getLabs(subjectId).subscribe(items => {
-      this.dataSourceForLab.data = items.Labs;
-    });
-    return this.dataSourceForLab;
+  isDataSourceForLab() {
+    return this.dataSourceForLab.data.length != 0;
   }
 
   getParamIdFromUrl() {
-    let subjectId;
-    this.route.params.subscribe(params => subjectId = params.id);
-    return subjectId;
+    this.route.params.pipe(
+     flatMap(({id}) => forkJoin([
+       this.lectureService.getLectures(id),
+       this.labService.getLabs(id),
+      ])),
+    )
+    .subscribe(([lectures, labs]) => {
+      this.dataSourceForLecture.data = lectures.Lectures;
+      this.dataSourceForLab.data = labs.Labs;
+      this.isLoadData = true;
+    });
   }
 
 }

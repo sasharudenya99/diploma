@@ -8,7 +8,7 @@ import { MatTableDataSource } from '@angular/material';
 })
 export class ItemTableComponent implements OnInit {
 
-  displayedColumns: string[] = ['position', 'name', 'shortName', 'countOfHour'];
+  displayedColumns: string[] = ['position', 'theme', 'name', 'shortName', 'countOfHour'];
   @Input() isLab: boolean;
   @Input() dataSource = new MatTableDataSource<object>();
 

@@ -8,17 +8,25 @@ import { Professor } from '../model/professor';
 })
 export class ProfessorService {
 
-    api = 'https://educats.azurewebsites.net';
+    api = 'http://localhost:6478/Administration/';
 
     constructor(private http: HttpClient) {
     }
 
     getProfessors(): Observable<Professor[]> {
-        return this.http.get<Professor[]>(this.api + '/api/Administration/Professors');
+        return this.http.get<Professor[]>(this.api + 'GetProfessorsJson');
+    }
+
+    addProfessor(professor: Professor): Observable<Professor> {
+        return this.http.post<Professor>(this.api + ' SaveProfessorJson/', professor);
+    }
+
+    editProfessor(professorId): Observable<void> {
+        return this.http.delete<void>(this.api + 'DeleteLecturerJson' + professorId);
     }
 
     deleteProfessor(professorId): Observable<void> {
-        return this.http.delete<void>(this.api + '/api/Administration/DeleteLecturer/' + professorId);
+        return this.http.delete<void>(this.api + 'DeleteLecturerJson' + professorId);
     }
 
 }

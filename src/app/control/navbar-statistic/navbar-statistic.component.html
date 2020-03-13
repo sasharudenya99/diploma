@@ -1,7 +1,7 @@
 <mat-toolbar *ngIf="isLoad">
     <div class="main-button">
         <mat-icon class="material-icons main-icon" aria-hidden="false">home</mat-icon>
-        <button routerLink="/control/main" mat-icon-button>(LMS).Platform</button>
+        <button [routerLink]="['/control/main', this.groupId]" mat-icon-button>(LMS).Platform</button>
     </div>
 
     <div class="nav-flex">
@@ -11,11 +11,11 @@
                 Предметы
             </button>
             <mat-menu #subject="matMenu" yPosition="below">
-                <button *ngFor="let element of this.subjectResponse.Subjects" [routerLink]="['/control/item', element.Id]" mat-menu-item>
+                <button *ngFor="let element of this.subjectResponse.Subjects" [routerLink]="['/control/item/', element.Id]" mat-menu-item>
                     {{ element.Name }}
                 </button>
             </mat-menu>
-            <button mat-button aria-label="Students">
+            <button mat-button aria-label="Stats" [routerLink]="['/control/statistic', 2]">
                 <mat-icon class="main-icon">mood</mat-icon>
                 Статистика
             </button>

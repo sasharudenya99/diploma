@@ -8,21 +8,21 @@ import { Group } from '../model/group';
 })
 export class GroupService {
 
-    api = 'https://educats.azurewebsites.net';
+    api = 'http://localhost:6478/Administration/';
 
     constructor(private http: HttpClient) {
     }
 
     getGroups(): Observable<Group[]> {
-        return this.http.get<Group[]>(this.api + '/api/Administration/Groups');
+        return this.http.get<Group[]>(this.api + 'GetGroupsJson');
     }
 
     getGroupById(groupId): Observable<Group> {
-        return this.http.get<Group>(this.api + '/api/Administration/Group/' + groupId);
+        return this.http.get<Group>(this.api + 'GetGroupJson/' + groupId);
     }
 
     addGroup(group): Observable<Group> {
-        return this.http.post<Group>(this.api + '/api/Administration/DeleteGroup/', group);
+        return this.http.post<Group>(this.api + 'SaveGroupJson', group);
     }
 
     deleteGroup(groupId): Observable<void> {

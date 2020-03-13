@@ -8,7 +8,7 @@ import { PracticalResponse } from '../model/lecture';
 })
 export class LabService {
 
-    api = 'http://educats.by/Services/Practicals/PracticalService.svc';
+    api = 'http://localhost:6478/Services/Practicals/PracticalService.svc';
 
     constructor(private http: HttpClient) {
     }

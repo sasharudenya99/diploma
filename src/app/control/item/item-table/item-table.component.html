@@ -5,15 +5,22 @@
         <td mat-cell *matCellDef="let i = index"> {{ i + 1 }} </td>
     </ng-container>
 
-    <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Название работы </th>
-        <td mat-cell *matCellDef="let element"> {{ element.Theme }} </td>
+    <ng-container matColumnDef="theme">
+        <th mat-header-cell [hidden] = "isLab" *matHeaderCellDef> Тема лекции </th>
+        <td mat-cell [hidden] = "isLab" *matCellDef="let element"> {{ element.Theme }} </td>
     </ng-container>
 
-    <ng-container matColumnDef="shortName">
-        <th mat-header-cell *matHeaderCellDef> Краткое название </th>
-        <td mat-cell *matCellDef="let element"> {{element.ShortName}} </td>
+    <ng-container matColumnDef="name">
+        <th mat-header-cell [hidden] = "!isLab" *matHeaderCellDef> Название работы </th>
+        <td mat-cell [hidden] = "!isLab" *matCellDef="let element"> {{ element.Theme }} </td>
     </ng-container>
+
+
+    <ng-container matColumnDef="shortName">
+        <th mat-header-cell [hidden] = "!isLab" *matHeaderCellDef> Краткое название </th>
+        <td mat-cell [hidden] = "!isLab" *matCellDef="let element"> {{element.ShortName}} </td>
+    </ng-container>
+
 
     <ng-container matColumnDef="countOfHour">
         <th mat-header-cell *matHeaderCellDef> Количество часов </th>

@@ -1,11 +1,12 @@
-<h1 mat-dialog-title>Контроль успеваемости</h1>
+<h1 mat-dialog-title>
+    Контроль успеваемости</h1>
 <mat-dialog-content>
     <div>
         <mat-form-field>
-            <input matInput placeholder="Введите номер группы">
+            <input #input matInput placeholder="Введите номер группы">
         </mat-form-field>
     </div>
 </mat-dialog-content>
 <mat-dialog-actions>
-    <button routerLink='/control' mat-button (click)="onNoClick()">Выбрать группу</button>
+    <button mat-button (click)="onNoClick(input.value)">Выбрать группу</button>
 </mat-dialog-actions>

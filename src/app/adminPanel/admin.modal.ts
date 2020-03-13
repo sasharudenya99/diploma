@@ -29,7 +29,9 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
 import { TableForStudentsComponent } from './table-for-students/table-for-students.component';
-import { TableForLectorsComponent } from './table-for-lectors/table-for-lectors.component';
+import { FilesTableComponent } from './files/files-table/files-table.component';
+import { FilesComponent } from './files/files.component';
+import { AdminGenerateComponent } from './admin-generate/admin-generate.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { TableForLectorsComponent } from './table-for-lectors/table-for-lectors.
     EditLectorComponent,
     ListOfSubjectComponent,
     TableForStudentsComponent,
-    TableForLectorsComponent
+    FilesTableComponent,
+    FilesComponent,
+    AdminGenerateComponent
   ],
   imports: [
     FormsModule,
@@ -71,9 +75,9 @@ import { TableForLectorsComponent } from './table-for-lectors/table-for-lectors.
     MatProgressSpinnerModule,
     BrowserAnimationsModule,
   ],
-  entryComponents: [LectorModalComponent, TableForStudentsComponent, TableForLectorsComponent, AddGroupComponent,
+  entryComponents: [LectorModalComponent, TableForStudentsComponent, AddGroupComponent,
     DeleteLectorComponent,
-    EditLectorComponent],
+    EditLectorComponent, FilesTableComponent],
   providers: [],
   exports: [
     NavbarComponent,
@@ -82,7 +86,6 @@ import { TableForLectorsComponent } from './table-for-lectors/table-for-lectors.
     GroupComponent, AddGroupComponent,
     GroupTableComponent,
     TableForStudentsComponent,
-    TableForLectorsComponent,
     MainComponent,
     AddGroupComponent,
     StudentsComponent,

@@ -15,11 +15,11 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.studentServiceData._loadUserActivity();
+    // this.studentServiceData._loadUserActivity();
   }
 
   load() {
-    return this.studentServiceData.userActivity;
+    // return this.studentServiceData.userActivity;
   }
 
 }

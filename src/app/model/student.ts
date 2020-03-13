@@ -1,17 +1,17 @@
 export class Student {
-    avatar: any;
-    name: string;
-    surname: string;
-    patronymic: string;
-    userName: string;
-    isPasswordReset: boolean;
-    password: string;
-    confirmPassword: string;
-    group: string;
-    email: string;
-    id: number;
-    fullName: string;
-    skypeContact: string;
-    phone: string;
-    about: string;
+    Avatar: any;
+    Name: string;
+    Surname: string;
+    Patronymic: string;
+    UserName: string;
+    IsPasswordReset: boolean;
+    Password: string;
+    ConfirmPassword: string;
+    Group: string;
+    Email: string;
+    Id: number;
+    FullName: string;
+    SkypeContact: string;
+    Phone: string;
+    About: string;
 }

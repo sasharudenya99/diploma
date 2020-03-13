@@ -4,6 +4,8 @@ import { MatDialog } from '@angular/material';
 import { SearchGroupComponent } from '../control/modal/search-group/search-group.component';
 import { StudentServiceData } from '../sharedService/student.data.service';
 import { StudentService } from '../service/student.service';
+import { GroupService } from '../service/group.service';
+import { Group } from '../model/group';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +14,7 @@ import { StudentService } from '../service/student.service';
 })
 export class LoginComponent implements OnInit {
 
-  groupName: string;
+  groups: Group[];
   public studentServiceData = new StudentServiceData(this.studentService);
   @Output() submitEM = new EventEmitter();
 
@@ -27,17 +29,26 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  constructor(private studentService: StudentService, private dialog: MatDialog) {
+  constructor(private groupService: GroupService, private studentService: StudentService,
+              private dialog: MatDialog) {
+  }
+
+  loadGroup() {
+    this.groupService.getGroups().subscribe(items => {
+      this.groups = items;
+    });
   }
 
   ngOnInit() {
     this.studentServiceData._loadStudent();
+    this.loadGroup();
   }
 
   openControlGroupDialog() {
-    const dialogRef = this.dialog.open(SearchGroupComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      this.groupName = result;
+    const dialogRef = this.dialog.open(SearchGroupComponent, {
+      data: {
+        data: this.groups
+      }
     });
   }
 

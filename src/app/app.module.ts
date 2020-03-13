@@ -12,6 +12,7 @@ import { ProfessorServiceData } from './sharedService/professor.data.service';
 import { GroupServiceData } from './sharedService/group.data.service';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { SignupModule } from './signup/signup.module';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { SignupModule } from './signup/signup.module';
     MatProgressSpinnerModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
-    SignupModule
+    SignupModule,
+    MatCardModule
   ],
   providers: [ StudentServiceData, ProfessorServiceData, GroupServiceData],
   bootstrap: [AppComponent]
