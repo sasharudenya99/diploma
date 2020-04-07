@@ -1,22 +1,22 @@
-import { Student } from './student';
-import { Group } from '../adminPanel/group/group.component';
+import { Group } from './group';
 
 export class Professor {
     FullName: string;
-    Login: string;
+    Username: string;
     LastLogin: string;
     Subjects: string;
     IsActive: boolean;
     Id: number;
     Number: number;
-    IsSecretary: string;
-    IsLecturerHasGraduateStudents: string;
-    FirstName: string;
-    LastName: string;
+    IsSecretary: boolean;
+    IsLecturerHasGraduateStudents: boolean;
     Skill: string;
-    MiddleName: string;
-    User: Student;
-    IsPasswordReset: string;
+    Password: string;
+    ConfirmPassword: string;
+    IsPasswordReset: boolean;
     Groups: Group[];
+    Name: string;
+    Surname: string;
+    Patronymic: string;
     modForAdd: boolean;
 }

@@ -1,6 +1,6 @@
 export class UserActivity {
-    totalUsersCount: number;
-    totalStudentsCount: number;
-    totalLecturersCount: number;
-    serviceAccountsCount: number;
+    TotalUsersCount: number;
+    TotalStudentsCount: number;
+    TotalLecturersCount: number;
+    ServiceAccountsCount: number;
 }

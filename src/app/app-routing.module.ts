@@ -13,12 +13,12 @@ import { GeneralComponent } from './control/general/general.component';
 import { StatsComponent } from './control/stats/stats.component';
 import { AdminGenerateComponent } from './adminPanel/admin-generate/admin-generate.component';
 import { FilesComponent } from './adminPanel/files/files.component';
-
+import { MessagesComponent } from './adminPanel/messages/messages.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'resetPassword', component: ResetThePasswordComponent },
+  { path: 'resetPassword/:id', component: ResetThePasswordComponent },
   { path: 'register', component: SignupComponent },
   {
     path: 'admin', component: AdminGenerateComponent, children: [
@@ -27,14 +27,15 @@ const routes: Routes = [
       { path: 'lectors', component: LectorsComponent },
       { path: 'students', component: StudentsComponent },
       { path: 'groups', component: GroupComponent },
-      { path: 'files', component: FilesComponent}
+      { path: 'files', component: FilesComponent},
+      { path: 'messages', component: MessagesComponent}
     ]
   },
   {
     path: 'control', component: GeneralComponent, children: [
       { path: '', redirectTo: 'main', pathMatch: 'full' },
       {path: 'main/:groupId', component: MainContolComponent},
-      {path: 'item/:id', component: ItemComponent},
+      {path: 'item/:groupId/subject/:id', component: ItemComponent},
       {path: 'statistic/:groupId', component: StatsComponent},
     ]
   },

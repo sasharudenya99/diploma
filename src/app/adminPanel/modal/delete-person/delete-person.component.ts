@@ -6,11 +6,10 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
   templateUrl: './delete-person.component.html',
   styleUrls: ['./delete-person.component.css']
 })
-export class DeleteLectorComponent implements OnInit {
+export class DeleteItemComponent implements OnInit {
 
   constructor(
-    public dialogRef: MatDialogRef<DeleteLectorComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
+    public dialogRef: MatDialogRef<DeleteItemComponent>) { }
 
   ngOnInit() {
   }

@@ -22,6 +22,10 @@ export class StudentService {
         return this.http.get<Student>(this.api + '/GetStudentJson/' + studentId);
     }
 
+    editStudents(student): Observable<Student> {
+        return this.http.post<Student>(this.api + 'EditStudent', student);
+    }
+
     deleteStudent(studentId): Observable<void> {
         return this.http.delete<void>(this.api + 'DeleteStudentJson/' + studentId);
     }

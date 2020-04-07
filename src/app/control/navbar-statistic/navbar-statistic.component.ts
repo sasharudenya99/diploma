@@ -22,7 +22,7 @@ export class NavbarStatisticComponent implements OnInit {
 
   ngOnInit() {
     this.getSubjectName(this.groupId);
-    this.groupId = this.activateRoute.snapshot.params['groupId'];
+    this.groupId = this.activateRoute.snapshot.params.groupId;
     console.log(this.groupId);
   }
 

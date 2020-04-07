@@ -1,33 +1,23 @@
-<h1 mat-dialog-title>Редактирование преподавателя</h1>
+<h1 mat-dialog-title>Редактирование студентов</h1>
 <form [formGroup]="this.form" (ngSubmit)="submit()">
     <mat-dialog-content>
-        <h2>{{ this.form.controls.FullName.value }}</h2>
+        <h2>{{ this.fullName }}</h2>
         <div>
             <mat-form-field>
                 <input matInput formControlName="Surname" placeholder="Фамилия">
             </mat-form-field>
-        </div>
-        <div>
             <mat-form-field>
                 <input matInput formControlName="Name" placeholder="Имя">
             </mat-form-field>
-        </div>
-        <div>
             <mat-form-field>
                 <input matInput formControlName="Patronymic" placeholder="Отчество">
             </mat-form-field>
-        </div>
-        <div class="checkbox">
-            <mat-checkbox formControlName="IsSecretary">Секретарь</mat-checkbox>
-        </div>
-        <div class="checkbox">
-            <mat-checkbox formControlName="IsLecturerHasGraduateStudents">Руководитель дипломного проекта</mat-checkbox>
-        </div>
-        <div>
             <mat-form-field>
-                <mat-label>Группы</mat-label>
-                <mat-select formControlName="Groups" multiple>
-                    <mat-option *ngFor="let group of groups" [value]="group">{{ group.Name }}</mat-option>
+                <mat-label>Группа</mat-label>
+                <mat-select formControlName="Group">
+                    <mat-optgroup [label]="this.form.controls.Group.value">
+                        <mat-option *ngFor="let group of groups" [value]="group">{{ group.Name }}</mat-option>
+                    </mat-optgroup>
                 </mat-select>
             </mat-form-field>
         </div>

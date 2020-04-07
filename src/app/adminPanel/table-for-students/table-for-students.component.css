@@ -1,4 +1,3 @@
-
 mat-form-field {
     margin-right: 100px;
     float: right;
@@ -6,16 +5,15 @@ mat-form-field {
 }
 
 table {
-    border:1px solid lavender;
+    border: 1px solid lavender;
     width: 95%;
 }
 
-th  {
-    
+th {
     width: 100px;
 }
 
-tr  {
+tr {
     height: 60px;
 }
 

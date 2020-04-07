@@ -12,12 +12,12 @@
 
         <ng-container matColumnDef="group">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Номер группы</th>
-            <td mat-cell *matCellDef="let element"> {{ element.Group }} </td>
+            <td mat-cell *matCellDef="let element"> {{ element.Group.Name }} </td>
         </ng-container>
 
         <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Полное имя</th>
-            <td mat-cell *matCellDef="let element"> {{ element.Name + ' ' + element.Surname + ' ' + element.Patronymic}} </td>
+            <td mat-cell *matCellDef="let element"> {{ element.Surname + ' ' + element.Name + ' ' + element.Patronymic}} </td>
         </ng-container>
 
         <ng-container matColumnDef="userName">
@@ -36,8 +36,11 @@
                 <button mat-button matTooltip="Статистика авторизации в системе" aria-label="Diagram">
                     <mat-icon>delete_forever</mat-icon>
                 </button>
-                <button mat-button matTooltip="Список предметов" aria-label="listOfSubsject">
+                <button mat-button matTooltip="Список предметов" aria-label="listOfSubsject" (click)="openListOfSubject()">
                     <mat-icon>list</mat-icon>
+                </button>
+                <button mat-button matTooltip="Редактировать " aria-label="Edit " (click)="openDialogEdit(element) ">
+                    <mat-icon>edit</mat-icon>
                 </button>
                 <button mat-button matTooltip="Профиль" aria-label="Profile">
                     <mat-icon>account_circle</mat-icon>

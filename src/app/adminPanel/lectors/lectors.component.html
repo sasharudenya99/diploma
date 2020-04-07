@@ -1,6 +1,6 @@
 <div class="main">
     <h1>Преподаватели</h1>
-    <button mat-raised-button (click)="saveProfessor()">Добавить преподаватели</button>
+    <button mat-raised-button (click)="saveProfessor()">Добавить преподавателя</button>
     <div>
         <mat-form-field>
             <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Поиск">
@@ -44,25 +44,25 @@
                     <button mat-button matTooltip="Статистика авторизации в системе" aria-label="Diagram">
                     <mat-icon>delete_forever</mat-icon>
                 </button>
-                    <button mat-button matTooltip="Список предметов" aria-label="listOfSubsject">
+                    <button mat-button matTooltip="Список предметов" aria-label="listOfSubsject" (click)="openListOfGroup(element)">
                     <mat-icon>list</mat-icon>
                 </button>
-                    <button mat-button matTooltip="Профиль" aria-label="Profile">
+                    <button mat-button matTooltip="Профиль " aria-label="Profile ">
                     <mat-icon>account_circle</mat-icon>
                 </button>
-                    <button mat-button matTooltip="Редактировать" aria-label="Edit" (click)="openDialogEdit()">
+                    <button mat-button matTooltip="Редактировать " aria-label="Edit " (click)="openDialogEdit(element) ">
                     <mat-icon>edit</mat-icon>
                 </button>
-                    <button mat-button matTooltip="Удалить" aria-label="Delete" (click)="deleteProfessor(element.id)">
+                    <button mat-button matTooltip="Удалить " aria-label="Delete " (click)="deleteProfessor(element.Id) ">
                     <mat-icon>delete_forever</mat-icon>
                 </button>
                 </td>
             </ng-container>
 
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns "></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns; "></tr>
         </table>
 
-        <mat-paginator #myPaginator [length]="25" [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons="true"></mat-paginator>
+        <mat-paginator #myPaginator [length]="25 " [pageSize]="5 " [pageSizeOptions]="[5, 10, 20] " showFirstLastButtons="true "></mat-paginator>
     </div>
 </div>

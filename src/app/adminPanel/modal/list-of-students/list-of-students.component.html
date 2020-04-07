@@ -1,0 +1,30 @@
+<div>
+    <div mat-dialog-title class="container">
+        <p>Группа</p>
+        <button mat-button class="close-icon" [mat-dialog-close]="true">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <div mat-dialog-content>
+        <div>
+            <table mat-table [dataSource]="dataSource" matSort matSortStart="asc" class="mat-elevation-z8">
+
+                <ng-container matColumnDef="student">
+                    <th mat-header-cell *matHeaderCellDef> Студент </th>
+                    <td class="table-container" mat-cell *matCellDef="let element"> {{ element.student }} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="isActive">
+                    <th mat-header-cell *matHeaderCellDef> Подтвержден </th>
+                    <td class="table-container" mat-cell *matCellDef="let element">
+                        <p *ngIf="element.isActive==true">Подтвержден</p>
+                        <p *ngIf="!element.isActive">Не подтвержден</p>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+    </div>
+</div>

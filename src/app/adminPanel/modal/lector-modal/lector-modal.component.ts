@@ -10,18 +10,14 @@ import { ProfessorService } from 'src/app/service/professor.service';
 })
 export class LectorModalComponent implements OnInit {
 
-  lector: Professor;
-
   constructor(
-    public profService: ProfessorService,
     public dialogRef: MatDialogRef<LectorModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Professor) { }
 
   ngOnInit(): void {
-  }
-
-  addProfessor(lector: Professor) {
-    this.profService.addProfessor(lector);
+    this.data.IsLecturerHasGraduateStudents = false;
+    this.data.IsSecretary = false;
+    this.data.IsActive = true;
   }
 
   onNoClick(): void {

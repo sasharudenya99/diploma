@@ -18,15 +18,15 @@ export class ProfessorService {
     }
 
     addProfessor(professor: Professor): Observable<Professor> {
-        return this.http.post<Professor>(this.api + ' SaveProfessorJson/', professor);
+        return this.http.post<Professor>(this.api + 'SaveProfessorJson/', professor);
     }
 
-    editProfessor(professorId): Observable<void> {
-        return this.http.delete<void>(this.api + 'DeleteLecturerJson' + professorId);
+    editProfessor(professor): Observable<Professor> {
+        return this.http.post<Professor>(this.api + 'EditProfessor/', professor);
     }
 
     deleteProfessor(professorId): Observable<void> {
-        return this.http.delete<void>(this.api + 'DeleteLecturerJson' + professorId);
+        return this.http.delete<void>(this.api + 'DeleteLecturerJson/' + professorId);
     }
 
 }

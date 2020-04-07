@@ -33,15 +33,15 @@ export class LoginComponent implements OnInit {
               private dialog: MatDialog) {
   }
 
+  ngOnInit() {
+    this.studentServiceData._loadStudent();
+    this.loadGroup();
+  }
+
   loadGroup() {
     this.groupService.getGroups().subscribe(items => {
       this.groups = items;
     });
-  }
-
-  ngOnInit() {
-    this.studentServiceData._loadStudent();
-    this.loadGroup();
   }
 
   openControlGroupDialog() {

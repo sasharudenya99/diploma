@@ -1,0 +1,17 @@
+h1 {
+    font-weight: lighter;
+    font-size: 28px;
+    width: 95%;
+    padding-bottom: 20px;
+    border-bottom: 1px solid lavender;
+}
+
+.main {
+    margin-top: 50px;
+    font-weight: lighter;
+    margin-left: 90px;
+}
+
+.mat-tab-group {
+    margin-top: 48px;
+}

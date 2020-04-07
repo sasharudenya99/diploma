@@ -2,11 +2,10 @@ h1 {
     width: 100%;
     padding-bottom: 10px;
     border-bottom: 2px solid lavender;
-    margin-bottom: 20px;
 }
 
 mat-dialog-content {
-    width: 450px;
+    width: 600px;
 }
 
 mat-form-field {
@@ -27,12 +26,23 @@ mat-dialog-actions {
     border: white;
 }
 
-mat-dialog-actions {
-    float: right;
+.password {
+    padding-top: 20px;
+    font-size: 20px;
 }
 
 h2 {
     text-align: center;
     margin-bottom: 10px;
     font-weight: lighter;
+}
+
+mat-dialog-actions {
+    float: right;
+    margin-top: 0;
+}
+
+.line {
+    margin-top: 20px;
+    border-top: 2px solid lavender;
 }

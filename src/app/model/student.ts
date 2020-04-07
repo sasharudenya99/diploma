@@ -14,4 +14,5 @@ export class Student {
     SkypeContact: string;
     Phone: string;
     About: string;
+    LastLogin: string;
 }
