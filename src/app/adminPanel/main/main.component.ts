@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from 'src/app/service/student.service';
-import { StudentServiceData } from 'src/app/sharedService/student.data.service';
 
 @Component({
   selector: 'app-main',
@@ -9,13 +8,10 @@ import { StudentServiceData } from 'src/app/sharedService/student.data.service';
 })
 export class MainComponent implements OnInit {
 
-  studentServiceData = new StudentServiceData(this.studentService);
-
   constructor(private studentService: StudentService) {
   }
 
   ngOnInit() {
-    // this.studentServiceData._loadUserActivity();
   }
 
   load() {

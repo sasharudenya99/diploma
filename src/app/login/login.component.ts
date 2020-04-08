@@ -2,9 +2,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material';
 import { SearchGroupComponent } from '../control/modal/search-group/search-group.component';
-import { StudentServiceData } from '../sharedService/student.data.service';
 import { StudentService } from '../service/student.service';
-import { GroupService } from '../service/group.service';
 import { Group } from '../model/group';
 
 @Component({
@@ -14,8 +12,6 @@ import { Group } from '../model/group';
 })
 export class LoginComponent implements OnInit {
 
-  groups: Group[];
-  public studentServiceData = new StudentServiceData(this.studentService);
   @Output() submitEM = new EventEmitter();
 
   form: FormGroup = new FormGroup({
@@ -29,27 +25,15 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  constructor(private groupService: GroupService, private studentService: StudentService,
+  constructor(private studentService: StudentService,
               private dialog: MatDialog) {
   }
 
   ngOnInit() {
-    this.studentServiceData._loadStudent();
-    this.loadGroup();
-  }
-
-  loadGroup() {
-    this.groupService.getGroups().subscribe(items => {
-      this.groups = items;
-    });
   }
 
   openControlGroupDialog() {
-    const dialogRef = this.dialog.open(SearchGroupComponent, {
-      data: {
-        data: this.groups
-      }
-    });
+    const dialogRef = this.dialog.open(SearchGroupComponent);
   }
 
 }

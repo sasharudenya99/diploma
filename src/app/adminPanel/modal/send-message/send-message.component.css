@@ -11,3 +11,21 @@
 .textarea {
     height: 300px;
 }
+
+h4 {
+    font-size: 18px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid lavender;
+    margin-bottom: 35px;
+}
+
+.close-button {
+    height: 3em;
+    background: white;
+    border: 0px;
+    margin-top: 16px;
+}

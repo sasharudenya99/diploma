@@ -1,8 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { GroupService } from 'src/app/service/group.service';
-import { Group } from 'src/app/model/group';
 import { Router } from '@angular/router';
+import { Group } from 'src/app/model/group';
 
 @Component({
   selector: 'app-search-group',
@@ -11,30 +11,49 @@ import { Router } from '@angular/router';
 })
 export class SearchGroupComponent implements OnInit {
 
-  ngOnInit(): void {
-  }
+  groups: Group[];
+  isLoad = false;
 
   constructor(
+    private groupService: GroupService,
     private router: Router,
-    public dialogRef: MatDialogRef<SearchGroupComponent>,
-    @Inject(MAT_DIALOG_DATA) public groups: Group[]) { }
+    public dialogRef: MatDialogRef<SearchGroupComponent>) { }
+
+  ngOnInit(): void {
+    this.loadGroup();
+  }
 
   onNoClick(numb: string): void {
-    this.groupIdByGroupName(numb);
+    if (numb) {
+      this.groupIdByGroupName(numb);
+    }
     this.dialogRef.close();
+  }
+
+  loadGroup() {
+    this.groupService.getGroups().subscribe(items => {
+      this.groups = items;
+      this.isLoad = true;
+    });
   }
 
   groupIdByGroupName(numb: string) {
     let groupId;
     let i;
-    // tslint:disable-next-line:prefer-for-of
-    console.log(this.groups);
     for (i = 0; i < this.groups.length; i++) {
-      if (numb !== this.groups[i].Name) {
+      if (numb === this.groups[i].Name) {
         groupId = this.groups[i].Id;
       }
     }
-    this.router.navigate(['/control/main/', 5054]);
+    this.routeToGroup(groupId);
+  }
+
+  routeToGroup(groupId) {
+    if (groupId) {
+      this.router.navigate(['/control/main/', groupId]);
+    } else {
+      this.router.navigate(['/control/groupNotFound']);
+    }
   }
 
 }

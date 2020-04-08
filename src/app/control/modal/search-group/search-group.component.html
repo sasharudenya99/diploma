@@ -1,12 +1,14 @@
-<h1 mat-dialog-title>
-    Контроль успеваемости</h1>
-<mat-dialog-content>
-    <div>
-        <mat-form-field>
-            <input #input matInput placeholder="Введите номер группы">
-        </mat-form-field>
-    </div>
-</mat-dialog-content>
-<mat-dialog-actions>
-    <button mat-button (click)="onNoClick(input.value)">Выбрать группу</button>
-</mat-dialog-actions>
+<div>
+    <h1 mat-dialog-title>
+        Контроль успеваемости</h1>
+    <mat-dialog-content>
+        <div>
+            <mat-form-field>
+                <input #input matInput placeholder="Введите номер группы">
+            </mat-form-field>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-button (click)="onNoClick(input.value)">Выбрать группу</button>
+    </mat-dialog-actions>
+</div>

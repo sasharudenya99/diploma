@@ -3,8 +3,9 @@ import { MatDialog } from '@angular/material';
 import { SearchGroupComponent } from '../modal/search-group/search-group.component';
 import { SubjectService } from 'src/app/service/subject.service';
 import { SubjectResponse } from 'src/app/model/subject.response';
-import { Router, ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
+import {  ActivatedRoute, ParamMap } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-navbar-statistic',
@@ -13,17 +14,18 @@ import { Location } from '@angular/common';
 })
 export class NavbarStatisticComponent implements OnInit {
 
-  groupName: string;
   subjectResponse: SubjectResponse;
   isLoad = false;
-  groupId: number;
+  groupId: string;
 
-  constructor(private dialog: MatDialog, private subjectService: SubjectService, private activateRoute: ActivatedRoute) { }
+  constructor(private dialog: MatDialog, private subjectService: SubjectService, private activateRoute: ActivatedRoute) {
+  }
 
   ngOnInit() {
-    this.getSubjectName(this.groupId);
-    this.groupId = this.activateRoute.snapshot.params.groupId;
+    console.log(this.activateRoute);
+    // this.groupId = this.activateRoute.snapshot._urlSegment
     console.log(this.groupId);
+    this.getSubjectName(this.groupId);
   }
 
   getSubjectName(groupId) {
@@ -34,9 +36,6 @@ export class NavbarStatisticComponent implements OnInit {
   }
 
   openControlGroupDialog() {
-    const dialogRef = this.dialog.open(SearchGroupComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      this.groupName = result;
-    });
+    this.dialog.open(SearchGroupComponent);
   }
 }

@@ -2,7 +2,59 @@
     <h1>Сообщения</h1>
     <button mat-raised-button (click)="this.sendMessage()">Написать сообщение</button>
     <mat-tab-group animationDuration="2000ms">
-        <mat-tab label="Входящие">Content 1</mat-tab>
-        <mat-tab label="Отправленные">Content 2</mat-tab>
+        <mat-tab label="Входящие">
+            <mat-accordion>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Personal data
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            Type your name and age
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+
+                    <mat-form-field>
+                        <mat-label>First name</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Age</mat-label>
+                        <input matInput type="number" min="1">
+                    </mat-form-field>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </mat-tab>
+        <mat-tab label="Отправленные">
+            <mat-accordion>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-description>
+                            <div class="container">
+                                <div>
+                                    <mat-icon class="main-icon"> email</mat-icon>
+                                    Петрашко Сергей</div>
+                                <div>текст сообщения укороченный</div>
+                                <div>20:53</div>
+                                <div>
+                                    <mat-icon>delete_forever</mat-icon>
+                                </div>
+                            </div>
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+
+                    <mat-form-field>
+                        <mat-label>First name</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Age</mat-label>
+                        <input matInput type="number" min="1">
+                    </mat-form-field>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </mat-tab>
     </mat-tab-group>
 </div>

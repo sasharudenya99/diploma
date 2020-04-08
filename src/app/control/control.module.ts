@@ -17,6 +17,7 @@ import { ItemTableComponent } from './item/item-table/item-table.component';
 import { StatsComponent } from './stats/stats.component';
 import { TableForAllSubjectComponent } from './stats/table-for-all-subject/table-for-all-subject.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { GroupNotFoundComponent } from './group-not-found/group-not-found.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     GeneralComponent,
     ItemTableComponent,
     StatsComponent,
-    TableForAllSubjectComponent
+    TableForAllSubjectComponent,
+    GroupNotFoundComponent
   ],
   imports: [
     BrowserModule,

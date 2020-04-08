@@ -37,7 +37,7 @@ import { EditStudentComponent } from './modal/edit-student/edit-student.componen
 import { MessagesComponent } from './messages/messages.component';
 import { SendMessageComponent } from './modal/send-message/send-message.component';
 import {MatTabsModule, MAT_TABS_CONFIG} from '@angular/material/tabs';
-import {MatFileUploadModule} from '@webacad/ng-mat-file-upload';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -85,8 +85,8 @@ import {MatFileUploadModule} from '@webacad/ng-mat-file-upload';
     MatProgressSpinnerModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    MatTabsModule,
-    MatFileUploadModule
+    MatTabsModule, 
+    MatExpansionModule
   ],
   entryComponents: [LectorModalComponent, TableForStudentsComponent, AddGroupComponent,
     DeleteItemComponent, EditLectorComponent, FilesTableComponent, SubjectListComponent, ListOfGroupsComponent,

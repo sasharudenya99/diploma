@@ -14,6 +14,7 @@ import { StatsComponent } from './control/stats/stats.component';
 import { AdminGenerateComponent } from './adminPanel/admin-generate/admin-generate.component';
 import { FilesComponent } from './adminPanel/files/files.component';
 import { MessagesComponent } from './adminPanel/messages/messages.component';
+import { GroupNotFoundComponent } from './control/group-not-found/group-not-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -35,8 +36,9 @@ const routes: Routes = [
     path: 'control', component: GeneralComponent, children: [
       { path: '', redirectTo: 'main', pathMatch: 'full' },
       {path: 'main/:groupId', component: MainContolComponent},
-      {path: 'item/:groupId/subject/:id', component: ItemComponent},
+      {path: 'item/:groupId/:subjectId', component: ItemComponent},
       {path: 'statistic/:groupId', component: StatsComponent},
+      {path: 'groupNotFound', component: GroupNotFoundComponent}
     ]
   },
 ];

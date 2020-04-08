@@ -9,6 +9,8 @@ import { SendMessageComponent } from '../modal/send-message/send-message.compone
 })
 export class MessagesComponent implements OnInit {
 
+  panelOpenState = false;
+
   constructor(private dialog: MatDialog) { }
 
   ngOnInit() {
