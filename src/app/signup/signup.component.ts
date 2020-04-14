@@ -29,7 +29,7 @@ export class SignupComponent implements OnInit {
   ];
   form: FormGroup;
 
-  constructor( private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
       this.form = this.formBuilder.group({
@@ -77,12 +77,4 @@ export class SignupComponent implements OnInit {
     return control.invalid && control.touched;
   }
 
-  matchFields(): ValidationErrors {
-    console.log(this.form.controls.password.value);
-    console.log(this.form.controls.confirmPassword.value);
-    if (this.form.controls.password.value !== this.form.controls.confirmPassword.value) {
-      return {invalid: 'Password unvalid'};
-    }
-    return null;
-  }
 }

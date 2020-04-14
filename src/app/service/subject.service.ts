@@ -8,7 +8,7 @@ import { SubjectResponse } from '../model/subject.response';
 })
 export class SubjectService {
 
-    api = 'http://educats.by/Services/Parental/ParentalService.svc';
+    api = 'http://localhost:6478/Services/Parental/ParentalService.svc';
 
     constructor(private http: HttpClient) {
     }

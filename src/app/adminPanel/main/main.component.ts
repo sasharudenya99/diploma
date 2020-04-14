@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { StudentService } from 'src/app/service/student.service';
+import { UserActivity } from 'src/app/model/userActivity';
+import { UserService } from 'src/app/service/userService';
 
 @Component({
   selector: 'app-main',
@@ -8,14 +9,20 @@ import { StudentService } from 'src/app/service/student.service';
 })
 export class MainComponent implements OnInit {
 
-  constructor(private studentService: StudentService) {
+  userActivity: UserActivity;
+  isLoad = false;
+  constructor(private userService: UserService) {
   }
 
   ngOnInit() {
+    this.loadActivity();
   }
 
-  load() {
-    // return this.studentServiceData.userActivity;
+  loadActivity() {
+    this.userService.getUserActivity().subscribe(result => {
+      this.userActivity = result;
+      this.isLoad = true;
+    });
   }
 
 }

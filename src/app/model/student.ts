@@ -16,3 +16,23 @@ export class Student {
     About: string;
     LastLogin: string;
 }
+
+export class StudentByGroup {
+    Students: Students[];
+}
+
+export class Students {
+    Confirmed: boolean;
+    FullName: string;
+    GroupId: number;
+    LabVisitingMark: string;
+    LabsMarkTotal: string;
+    Login: string;
+    PracticalMarkTotal: string;
+    PracticalVisitingMark: string;
+    StudentId: number;
+    StudentLabMarks: string;
+    StudentPracticalMarks: string;
+    SubgroupId: string;
+    TestMark: string;
+}

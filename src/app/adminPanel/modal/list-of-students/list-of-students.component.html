@@ -1,4 +1,4 @@
-<div>
+<div [hidden]='!this.isLoad'>
     <div mat-dialog-title class="container">
         <p>Группа</p>
         <button mat-button class="close-icon" [mat-dialog-close]="true">
@@ -6,19 +6,22 @@
         </button>
     </div>
     <div mat-dialog-content>
-        <div>
-            <table mat-table [dataSource]="dataSource" matSort matSortStart="asc" class="mat-elevation-z8">
+        <div *ngIf='!isStudents'>
+            <p>В данной группе не числется студентов</p>
+        </div>
+        <div *ngIf='isStudents'>
+            <table mat-table [dataSource]="dataSource" matSort matSortStart="asc">
 
                 <ng-container matColumnDef="student">
                     <th mat-header-cell *matHeaderCellDef> Студент </th>
-                    <td class="table-container" mat-cell *matCellDef="let element"> {{ element.student }} </td>
+                    <td class="table-container" mat-cell *matCellDef="let element"> {{ element.FullName }} </td>
                 </ng-container>
 
-                <ng-container matColumnDef="isActive">
+                <ng-container matColumnDef="confimed">
                     <th mat-header-cell *matHeaderCellDef> Подтвержден </th>
                     <td class="table-container" mat-cell *matCellDef="let element">
-                        <p *ngIf="element.isActive==true">Подтвержден</p>
-                        <p *ngIf="!element.isActive">Не подтвержден</p>
+                        <p *ngIf="this.isConfimed(element.Confirmed)">Подтвержден</p>
+                        <p *ngIf="!this.isConfimed(element.Confirmed)">Не подтвержден</p>
                     </td>
                 </ng-container>
 

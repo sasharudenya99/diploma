@@ -3,7 +3,6 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material';
 import { SearchGroupComponent } from '../control/modal/search-group/search-group.component';
 import { StudentService } from '../service/student.service';
-import { Group } from '../model/group';
 
 @Component({
   selector: 'app-login',
@@ -33,7 +32,7 @@ export class LoginComponent implements OnInit {
   }
 
   openControlGroupDialog() {
-    const dialogRef = this.dialog.open(SearchGroupComponent);
+    this.dialog.open(SearchGroupComponent);
   }
 
 }

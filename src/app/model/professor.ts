@@ -19,4 +19,7 @@ export class Professor {
     Surname: string;
     Patronymic: string;
     modForAdd: boolean;
+    FirstName: string;
+    LastName: string;
+    MiddleName: string;
 }

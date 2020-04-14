@@ -85,14 +85,14 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatProgressSpinnerModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    MatTabsModule, 
+    MatTabsModule,
     MatExpansionModule
   ],
   entryComponents: [LectorModalComponent, TableForStudentsComponent, AddGroupComponent,
     DeleteItemComponent, EditLectorComponent, FilesTableComponent, SubjectListComponent, ListOfGroupsComponent,
     ListOfStudentsComponent, EditStudentComponent, SendMessageComponent ],
   providers: [{provide: MAT_CHECKBOX_CLICK_ACTION, useValue: 'check'},
-  {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
+  {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {}},
   { provide: MAT_TABS_CONFIG, useValue: { animationDuration: '200ms' } }],
   exports: [
     NavbarComponent,

@@ -24,18 +24,20 @@ export class ItemComponent implements OnInit {
   }
 
   isDataSourceForLecture() {
-    return this.dataSourceForLecture.data.length != 0;
+    const data = this.dataSourceForLecture.data;
+    return data && data.length !== 0;
   }
 
   isDataSourceForLab() {
-    return this.dataSourceForLab.data.length != 0;
+    const data = this.dataSourceForLab.data;
+    return data && data.length !== 0;
   }
 
   getParamIdFromUrl() {
     this.route.params.pipe(
-     flatMap(({id}) => forkJoin([
-       this.lectureService.getLectures(id),
-       this.labService.getLabs(id),
+     flatMap(({subjectId}) => forkJoin([
+       this.lectureService.getLectures(subjectId),
+       this.labService.getLabs(subjectId),
       ])),
     )
     .subscribe(([lectures, labs]) => {

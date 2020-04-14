@@ -5,7 +5,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { MainContolComponent } from './main/main.component';
 import { SearchGroupComponent } from './modal/search-group/search-group.component';
 import { FormsModule } from '@angular/forms';
-import {MatDialogModule} from '@angular/material/dialog';
+import {MatDialogModule, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule, MatButtonModule, MatToolbarModule, MatInputModule, MatTableModule, MatPaginatorModule } from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
@@ -48,7 +48,7 @@ import { GroupNotFoundComponent } from './group-not-found/group-not-found.compon
     MatMenuModule,
     MatProgressSpinnerModule
   ],
-  providers: [],
+  providers: [{ provide: MAT_DIALOG_DATA, useValue: [] }],
   bootstrap: [],
   exports: [ NavbarStatisticComponent,
     MainContolComponent, SearchGroupComponent ],

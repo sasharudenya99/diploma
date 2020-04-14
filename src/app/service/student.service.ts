@@ -29,8 +29,4 @@ export class StudentService {
     deleteStudent(studentId): Observable<void> {
         return this.http.delete<void>(this.api + 'DeleteStudentJson/' + studentId);
     }
-
-    getUserActivity(): Observable<UserActivity> {
-        return this.http.get<UserActivity>(this.api + 'UserActivityJson');
-    }
 }

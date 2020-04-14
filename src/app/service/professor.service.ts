@@ -13,6 +13,10 @@ export class ProfessorService {
     constructor(private http: HttpClient) {
     }
 
+    getProfessorById(professorId): Observable<Professor> {
+        return this.http.get<Professor>(this.api + 'GetProfessorJson/' + professorId);
+    }
+
     getProfessors(): Observable<Professor[]> {
         return this.http.get<Professor[]>(this.api + 'GetProfessorsJson');
     }
@@ -22,7 +26,7 @@ export class ProfessorService {
     }
 
     editProfessor(professor): Observable<Professor> {
-        return this.http.post<Professor>(this.api + 'EditProfessor/', professor);
+        return this.http.post<Professor>(this.api + 'EditProfessor', professor);
     }
 
     deleteProfessor(professorId): Observable<void> {

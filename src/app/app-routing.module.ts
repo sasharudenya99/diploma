@@ -19,7 +19,8 @@ import { GroupNotFoundComponent } from './control/group-not-found/group-not-foun
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'resetPassword/:id', component: ResetThePasswordComponent },
+  { path: 'resetPassword/student/:studentId', component: ResetThePasswordComponent },
+  { path: 'resetPassword/lector/:lectorId', component: ResetThePasswordComponent },
   { path: 'register', component: SignupComponent },
   {
     path: 'admin', component: AdminGenerateComponent, children: [

@@ -23,7 +23,6 @@ export class EditStudentComponent implements OnInit {
 
   ngOnInit() {
     const student = this.data.data;
-    console.log(student);
     this.fullName = student.Surname + ' ' + student.Name + ' ' + student.Patronymic;
     this.loadGroup();
     this.form = this.formBuilder.group({
@@ -57,10 +56,12 @@ export class EditStudentComponent implements OnInit {
 
   sendData() {
     const st = this.data.data;
+    st.FullName = this.form.controls.Surname.value + ' ' + this.form.controls.Name.value + ' '
+     + this.form.controls.Patronymic.value;
     st.Surname = this.form.controls.Surname.value;
     st.Name = this.form.controls.Name.value;
     st.Patronymic = this.form.controls.Patronymic.value;
-    st.Group = this.form.controls.Group.value;
+    st.Group = this.form.controls.Group.value.Name;
     return st;
   }
 }

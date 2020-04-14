@@ -1,4 +1,4 @@
-<div class= "main" *ngIf="this.isLoadData">
+<div class="main" *ngIf="this.isLoadData">
     <div [hidden]="!this.isDataSourceForLecture()">
         <h1>Лекции</h1>
         <app-item-table [isLab]="false" [dataSource]="this.dataSourceForLecture"></app-item-table>
@@ -11,4 +11,3 @@
         <p>Материалов по данному предмету не найдено.</p>
     </div>
 </div>
-

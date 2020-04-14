@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource, MatDialogRef } from '@angular/material';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatTableDataSource, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { GroupService } from 'src/app/service/group.service';
 
 @Component({
   selector: 'app-list-of-students',
@@ -8,17 +9,34 @@ import { MatTableDataSource, MatDialogRef } from '@angular/material';
 })
 export class ListOfStudentsComponent implements OnInit {
 
-  displayedColumns: string[] = ['student', 'isActive'];
+  displayedColumns: string[] = ['student', 'confimed'];
   dataSource = new MatTableDataSource<object>();
+  isLoad = false;
 
-  constructor(public dialogRef: MatDialogRef<ListOfStudentsComponent>) { }
+  constructor(
+    private groupService: GroupService,
+    public dialogRef: MatDialogRef<ListOfStudentsComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
-    this.dataSource.data = [
-      {student: 'Руденя Александра', isActive: true},
-      {student: 'Руденя Елена', isActive: false},
-      {student: 'Руденя Дарья', isActive: true}
-    ];
+    this.loadStudentById(this.data.data);
+  }
+
+  isStudents() {
+    return this.data.data.length !== 0;
+  }
+
+  async loadStudentById(groupId) {
+    await this.groupService.getStudentsByGroupId(groupId).subscribe(
+      result => {
+      this.dataSource.data = result.Students;
+      this.isLoad = true;
+      console.log('q' , this.dataSource.data);
+    });
+  }
+
+  isConfimed(confimed) {
+    return confimed === true;
   }
 
 }

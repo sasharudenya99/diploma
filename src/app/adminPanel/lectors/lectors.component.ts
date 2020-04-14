@@ -45,13 +45,14 @@ export class LectorsComponent implements OnInit {
   }
 
   openDialogEdit(dataLector) {
+    console.log(dataLector);
     const dialogRef = this.dialog.open(EditLectorComponent, {
       data: {
         data: dataLector
       }
     });
     dialogRef.afterClosed().subscribe(result => {
-      if (result.data) {
+      if (result) {
         this.editLector(result.data);
       }
     });
@@ -74,7 +75,6 @@ export class LectorsComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.dataLector = result;
         this.addLector(result);
       }
     });
@@ -88,7 +88,6 @@ export class LectorsComponent implements OnInit {
   }
 
   addLector(professor: Professor): void {
-    console.log(professor);
     this.professorService.addProfessor(professor).subscribe(() => {
       this.dataLector = new Professor();
       this.loadLector();

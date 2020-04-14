@@ -37,7 +37,7 @@ export class TableForStudentsComponent implements OnInit {
   }
 
   editStudent(student): void {
-    this.studentService.deleteStudent(student).subscribe(() => {
+    this.studentService.editStudents(student).subscribe(() => {
       student = new Student();
       this.loadStudent();
     });
@@ -67,7 +67,7 @@ export class TableForStudentsComponent implements OnInit {
       }
     });
     dialogRef.afterClosed().subscribe(result => {
-      if (result.data === undefined) {
+      if (result) {
         this.editStudent(result.data);
       }
     });

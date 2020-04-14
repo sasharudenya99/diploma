@@ -20,6 +20,7 @@ export class GroupComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   isDelete = false;
   isLoad = false;
+  isLoadStudent = false;
 
   constructor(private groupService: GroupService, private dialog: MatDialog) { }
 
@@ -87,10 +88,10 @@ export class GroupComponent implements OnInit {
     });
   }
 
-  openListOfStudents(group) {
+  async openListOfStudents(groupId) {
     const dialogRef = this.dialog.open(ListOfStudentsComponent, {
       data: {
-        data: group
+        data: groupId
       }
     });
     dialogRef.afterClosed();

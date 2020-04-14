@@ -1,22 +1,18 @@
-<!-- <div *ngIf='this.studentServiceData.isLoad'> -->
-<div>
-    <div class="main">
-        <h1>Администрирование LMS</h1>
-        <div class="inline">
-            <div class="div1">
-                <p class="active">Активность пользователей</p>
-                <p> Показывает процентное соотношение пользователей, осуществиших свой последний вход в систему в последние сутки, от суток до недели и тд., от общего числа пользователей</p>
-            </div>
-            <div class="div2">
-                <!-- <p>Всего пользователей: {{ load().TotalUsersCount }} </p>
-                <p>Зарегистрировано студентов: {{load().TotalStudentsCount }} </p>
-                <p>Зарегистрировано преподавателей: {{ load().TotalLecturersCount }} </p>
-                <p>Сервисных аккаунтов: {{ load().ServiceAccountsCount }}</p> -->
-                <p>Всего пользователей: 1234 </p>
-                <p>Зарегистрировано студентов: 1190 </p>
-                <p>Зарегистрировано преподавателей: 33 </p>
-                <p>Сервисных аккаунтов: 34</p>
+<div *ngIf='this.isLoad'>
+    <div>
+        <div class="main">
+            <h1>Администрирование LMS</h1>
+            <div class="inline">
+                <div class="div1">
+                    <p class="active">Активность пользователей</p>
+                    <p> Показывает процентное соотношение пользователей, осуществиших свой последний вход в систему в последние сутки, от суток до недели и тд., от общего числа пользователей</p>
+                </div>
+                <div class="div2">
+                    <p>Всего пользователей: {{ userActivity.TotalUsersCount }} </p>
+                    <p>Зарегистрировано студентов: {{ userActivity.TotalStudentsCount }} </p>
+                    <p>Зарегистрировано преподавателей: {{ userActivity.TotalLecturersCount }} </p>
+                    <p>Сервисных аккаунтов: {{ userActivity.ServiceAccountsCount }}</p>
+                </div>
             </div>
         </div>
     </div>
-</div>

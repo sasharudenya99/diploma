@@ -3,9 +3,7 @@ import { MatDialog } from '@angular/material';
 import { SearchGroupComponent } from '../modal/search-group/search-group.component';
 import { SubjectService } from 'src/app/service/subject.service';
 import { SubjectResponse } from 'src/app/model/subject.response';
-import {  ActivatedRoute, ParamMap } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import {  ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-navbar-statistic',
@@ -22,9 +20,7 @@ export class NavbarStatisticComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.activateRoute);
-    // this.groupId = this.activateRoute.snapshot._urlSegment
-    console.log(this.groupId);
+    this.groupId = this.activateRoute.snapshot.firstChild.params.groupId;
     this.getSubjectName(this.groupId);
   }
 
@@ -35,7 +31,14 @@ export class NavbarStatisticComponent implements OnInit {
     });
   }
 
+  isSubject() {
+    return this.subjectResponse.Subjects.length !== 0;
+  }
+
   openControlGroupDialog() {
-    this.dialog.open(SearchGroupComponent);
+    const ref = this.dialog.open(SearchGroupComponent);
+    ref.afterClosed().subscribe(() => {
+        this.ngOnInit();
+    });
   }
 }

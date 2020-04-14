@@ -24,14 +24,13 @@ export class EditLectorComponent implements OnInit {
 
   ngOnInit() {
     const professor = this.data.data;
-    const fullName = professor.FullName.split(' ');
     this.loadGroup();
 
     this.form = this.formBuilder.group({
       Id: new FormControl(professor.Id),
-      Surname: new FormControl(fullName[0]),
-      Name: new FormControl(fullName[1]),
-      Patronymic: new FormControl(fullName[2]),
+      Surname: new FormControl(professor.LastName),
+      Name: new FormControl(professor.FirstName),
+      Patronymic: new FormControl(professor.MiddleName),
       IsSecretary: new FormControl(professor.IsSecretary),
       IsLecturerHasGraduateStudents: new FormControl(professor.IsLecturerHasGraduateStudents),
       Groups: new FormControl(professor.Groups),
@@ -61,16 +60,10 @@ export class EditLectorComponent implements OnInit {
 
   sendData() {
     const prof = this.data.data;
-    prof.Surname = this.form.controls.Surname.value;
-    prof.Name = this.form.controls.Name.value;
-    prof.Patronymic = this.form.controls.Patronymic.value;
-    if (!this.form.controls.IsSecretary.value) {
-      this.form.controls.IsSecretary.setValue(false);
-    }
+    prof.LastName = this.form.controls.Surname.value;
+    prof.FirstName = this.form.controls.Name.value;
+    prof.MiddleName = this.form.controls.Patronymic.value;
     prof.IsSecretary = this.form.controls.IsSecretary.value;
-    if (!this.form.controls.IsLecturerHasGraduateStudents.value) {
-      this.form.controls.IsLecturerHasGraduateStudents.setValue(false);
-    }
     prof.IsLecturerHasGraduateStudents = this.form.controls.IsLecturerHasGraduateStudents.value;
     prof.Groups = this.form.controls.Groups.value;
     return prof;

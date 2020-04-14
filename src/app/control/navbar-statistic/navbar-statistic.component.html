@@ -6,16 +6,16 @@
 
     <div class="nav-flex">
         <div>
-            <button *ngIf="this.groupId" mat-button [matMenuTriggerFor]="subject" class="my-menu">
+            <button *ngIf="this.groupId && this.isSubject()" mat-button [matMenuTriggerFor]="subject" class="my-menu">
                 <mat-icon class="main-icon">record_voice_over</mat-icon>
                 Предметы
             </button>
             <mat-menu #subject="matMenu" yPosition="below">
-                <button *ngFor="let element of this.subjectResponse.Subjects" [routerLink]="['/control/item/', element.Id]" mat-menu-item>
+                <button *ngFor="let element of this.subjectResponse.Subjects" routerLink="/control/item/{{this.groupId}}/{{element.Id}}" mat-menu-item>
                     {{ element.Name }}
                 </button>
             </mat-menu>
-            <button *ngIf="this.groupId" mat-button aria-label="Stats" [routerLink]="['/control/statistic', 2]">
+            <button *ngIf="this.groupId" mat-button aria-label="Stats" [routerLink]="['/control/statistic', groupId]">
                 <mat-icon class="main-icon">mood</mat-icon>
                 Статистика
             </button>
