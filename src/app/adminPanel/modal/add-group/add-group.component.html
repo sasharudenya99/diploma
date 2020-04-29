@@ -2,7 +2,7 @@
 <h1 mat-dialog-title *ngIf="!this.data.data.Name">Добавление группы</h1>
 <form [formGroup]="this.form" (ngSubmit)="submit()">
     <mat-dialog-content>
-        <h2 *ngIf="this.data.data.Name"> Группа - {{ this.data.data.Name }}</h2>
+        <h2 *ngIf="this.data.data.Name"> Группа {{ this.data.data.Name }}</h2>
         <div>
             <mat-form-field>
                 <input matInput formControlName="Name" placeholder="Номер группы">

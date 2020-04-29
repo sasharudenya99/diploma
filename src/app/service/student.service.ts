@@ -9,7 +9,7 @@ import { UserActivity } from '../model/userActivity';
 })
 export class StudentService {
 
-    api = 'http://localhost:6478/Administration/';
+    api = '/Administration/';
 
     constructor(private http: HttpClient) {
     }
@@ -19,7 +19,7 @@ export class StudentService {
     }
 
     getStudentById(studentId): Observable<Student> {
-        return this.http.get<Student>(this.api + '/GetStudentJson/' + studentId);
+        return this.http.get<Student>(this.api + 'GetStudentJson/' + studentId);
     }
 
     editStudents(student): Observable<Student> {

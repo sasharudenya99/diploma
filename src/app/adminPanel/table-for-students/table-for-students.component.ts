@@ -5,6 +5,8 @@ import { DeleteItemComponent } from '../modal/delete-person/delete-person.compon
 import { SubjectListComponent } from '../modal/subject-list/subject-list.component';
 import { Student } from 'src/app/model/student';
 import { EditStudentComponent } from '../modal/edit-student/edit-student.component';
+import { StatisticComponent } from '../modal/statistic/statistic.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-table-for-students',
@@ -21,12 +23,16 @@ export class TableForStudentsComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   isDelete = false;
 
-  constructor(private dialog: MatDialog, private studentService: StudentService) { }
+  constructor(private dialog: MatDialog, private studentService: StudentService, private router: Router) { }
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
     this.loadStudent();
+  }
+
+  navigateToProfile(login) {
+    this.router.navigate(['admin/profile', login]);
   }
 
   loadStudent() {
@@ -49,7 +55,6 @@ export class TableForStudentsComponent implements OnInit {
   }
 
   openDialogDelete(id) {
-    console.log(id);
     const dialogRef = this.dialog.open(DeleteItemComponent);
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
@@ -62,20 +67,27 @@ export class TableForStudentsComponent implements OnInit {
 
   openDialogEdit(person) {
     const dialogRef = this.dialog.open(EditStudentComponent, {
-      data: {
-        data: person
-      }
+      data: person
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
+        console.log(result.data);
         this.editStudent(result.data);
       }
     });
   }
 
-  openListOfSubject() {
-    const dialogRef = this.dialog.open(SubjectListComponent);
-    dialogRef.afterClosed().subscribe(result => {
+  openDiagram(userId) {
+    const dialogRef = this.dialog.open(StatisticComponent, {
+      data: userId
     });
+    dialogRef.afterClosed();
+  }
+
+  openListOfSubject(studentId) {
+    const dialogRef = this.dialog.open(SubjectListComponent, {
+      data: studentId
+    });
+    dialogRef.afterClosed();
   }
 }

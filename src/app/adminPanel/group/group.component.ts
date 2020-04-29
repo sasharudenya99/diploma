@@ -82,7 +82,7 @@ export class GroupComponent implements OnInit {
       }
     });
     dialogRef.afterClosed().subscribe(result => {
-      if (result.data) {
+      if (result) {
         this.editGroupJson(result.data);
       }
     });

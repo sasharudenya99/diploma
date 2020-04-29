@@ -1,11 +1,29 @@
 {
-    "/api": {
-      "target": "https://educats.azurewebsites.net",
-      "secure": false,
-      "pathRewrite": {
-        "^/api": ""
-      },
-        "changeOrigin": true
+    "/Administration/*": {
+        "target": {
+            "host": "localhost",
+            "protocol": "http:",
+            "port": 6478
+        },
+        "secure": false,
+        "logLevel": "info"
+    },
+    "/Profile/*": {
+        "target": {
+            "host": "localhost",
+            "protocol": "http:",
+            "port": 6478
+        },
+        "secure": false,
+        "logLevel": "info"
+    },
+    "/Services/*": {
+        "target": {
+            "host": "localhost",
+            "protocol": "http:",
+            "port": 6478
+        },
+        "secure": false,
+        "logLevel": "info"
     }
-    
 }

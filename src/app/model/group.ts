@@ -6,3 +6,18 @@ export class Group {
     Id: number;
     Number: number;
 }
+
+export class LecturerGroup {
+    Lecturer: string;
+    Subjects: SubjectInfo[];
+}
+
+export class SubjectInfo {
+    SubjectName: string;
+    Groups: SubjectGroup[];
+}
+
+export class SubjectGroup {
+    GroupName: string;
+    StudentsCount: number;
+}

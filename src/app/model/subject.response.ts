@@ -10,3 +10,13 @@ export class Subject {
     Name: string;
     ShortName: string;
 }
+
+export class SubjectDepend {
+    Student: string;
+    Subjects: Depend[];
+}
+
+export class Depend {
+    SubjectName: string;
+    Lecturers: string[];
+}

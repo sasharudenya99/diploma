@@ -1,7 +1,6 @@
 .container {
     display: flex;
     justify-content: space-between;
-    width: 32em;
 }
 
 table {
@@ -11,4 +10,9 @@ table {
 
 th {
     width: 100px;
+}
+
+.student-name {
+    text-align: center;
+    padding: 10px;
 }

@@ -8,7 +8,7 @@ import { Professor } from '../model/professor';
 })
 export class ProfessorService {
 
-    api = 'http://localhost:6478/Administration/';
+    api = '/Administration/';
 
     constructor(private http: HttpClient) {
     }

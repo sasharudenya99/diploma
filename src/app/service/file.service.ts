@@ -9,7 +9,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class FileService {
 
-    api = 'http://localhost:6478/Services/Files/FilesService.svc/';
+    api = '/Services/Files/FilesService.svc/';
 
     constructor(private http: HttpClient) {
     }

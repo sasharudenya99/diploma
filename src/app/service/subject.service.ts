@@ -8,12 +8,13 @@ import { SubjectResponse } from '../model/subject.response';
 })
 export class SubjectService {
 
-    api = 'http://localhost:6478/Services/Parental/ParentalService.svc';
+    api = '/Services/Parental/ParentalService.svc/';
 
     constructor(private http: HttpClient) {
     }
 
     getSubjects(groupId: any): Observable<SubjectResponse> {
-        return this.http.get<SubjectResponse>(this.api + '/GetGroupSubjects/' + groupId);
+        return this.http.get<SubjectResponse>(this.api + 'GetGroupSubjects/' + groupId);
     }
+
 }

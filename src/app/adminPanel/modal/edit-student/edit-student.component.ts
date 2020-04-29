@@ -22,8 +22,7 @@ export class EditStudentComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
-    const student = this.data.data;
-    this.fullName = student.Surname + ' ' + student.Name + ' ' + student.Patronymic;
+    const student = this.data;
     this.loadGroup();
     this.form = this.formBuilder.group({
       Id: new FormControl(student.Id),
@@ -55,7 +54,7 @@ export class EditStudentComponent implements OnInit {
   }
 
   sendData() {
-    const st = this.data.data;
+    const st = this.data;
     st.FullName = this.form.controls.Surname.value + ' ' + this.form.controls.Name.value + ' '
      + this.form.controls.Patronymic.value;
     st.Surname = this.form.controls.Surname.value;

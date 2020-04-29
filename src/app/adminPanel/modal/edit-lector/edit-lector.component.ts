@@ -23,7 +23,7 @@ export class EditLectorComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
-    const professor = this.data.data;
+    const professor = this.data;
     this.loadGroup();
 
     this.form = this.formBuilder.group({
@@ -59,7 +59,8 @@ export class EditLectorComponent implements OnInit {
   }
 
   sendData() {
-    const prof = this.data.data;
+    const prof = this.data;
+    prof.FullName = this.form.controls.Surname.value + ' ' + this.form.controls.Name.value + ' ' + this.form.controls.Patronymic.value;
     prof.LastName = this.form.controls.Surname.value;
     prof.FirstName = this.form.controls.Name.value;
     prof.MiddleName = this.form.controls.Patronymic.value;

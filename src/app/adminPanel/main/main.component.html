@@ -16,3 +16,14 @@
             </div>
         </div>
     </div>
+    <div class="charts">
+        <div>
+            <google-chart [type]="type" [data]="this.users" [options]="options" [width]="550" [height]="400">
+            </google-chart>
+        </div>
+        <div>
+            <google-chart [type]="type" [data]="this.times" [options]="options" [width]="550" [height]="400">
+            </google-chart>
+        </div>
+    </div>
+</div>

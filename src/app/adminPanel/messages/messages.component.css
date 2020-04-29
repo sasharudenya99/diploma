@@ -16,11 +16,60 @@ h1 {
     margin-top: 48px;
 }
 
-.mat-form-field+.mat-form-field {
-    margin-left: 8px;
-}
-
 .container {
     display: flex;
     justify-content: space-between;
+}
+
+tr.mat-header-row {
+    display: none;
+}
+
+.message-table {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.message-icon {
+    width: 5%;
+    margin-right: 5px;
+}
+
+.message-name {
+    width: 20%;
+    max-width: 150px;
+}
+
+td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.message-subject {
+    width: 15%;
+}
+
+.message-text {
+    width: 50%;
+    max-width: 500px;
+}
+
+.message-date {
+    width: 5%;
+}
+
+.message-action {
+    width: 5%;
+}
+
+a {
+    color: blue;
 }

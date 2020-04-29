@@ -3,4 +3,5 @@ export class UserActivity {
     TotalStudentsCount: number;
     TotalLecturersCount: number;
     ServiceAccountsCount: number;
+    UserActivityJson: string;
 }

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource, MatDialogRef } from '@angular/material';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatTableDataSource, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { GroupService } from 'src/app/service/group.service';
 
 @Component({
   selector: 'app-list-of-groups',
@@ -10,15 +11,21 @@ export class ListOfGroupsComponent implements OnInit {
 
   displayedColumns: string[] = ['subject', 'groups', 'countOfStudents'];
   dataSource = new MatTableDataSource<object>();
+  groupInfo;
+  isLoad = false;
 
-  constructor(public dialogRef: MatDialogRef<ListOfGroupsComponent>) { }
+  constructor(public dialogRef: MatDialogRef<ListOfGroupsComponent>, @Inject(MAT_DIALOG_DATA) public data: any,
+              private groupService: GroupService) { }
 
   ngOnInit() {
-    this.dataSource.data = [
-      {subject: 'предмет', groups: ['123456', '123456', '123456'], countOfStudents: [22, 23, 45]},
-      {subject: 'ghbjmkl,gvhbjmkl,gjmkl', groups: ['123456', '123456'], countOfStudents: [22, 23]},
-      {subject: 'ghbjmkl,gvhbjmkl,ghjmkl', groups: ['123456', '123456'], countOfStudents: [22, 23]}
-    ];
+    this.loadInfo(this.data);
+  }
+
+  loadInfo(lectorId) {
+    this.groupService.getListOfGroupsByLecturerId(lectorId).subscribe( result => {
+      this.groupInfo = result;
+      this.isLoad = true;
+    });
   }
 
 }

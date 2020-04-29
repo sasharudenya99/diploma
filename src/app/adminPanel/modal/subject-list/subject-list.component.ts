@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA, MatTableDataSource } from '@angular/material';
+import { UserService } from 'src/app/service/userService';
 
 @Component({
   selector: 'app-subject-list',
@@ -10,14 +11,21 @@ export class SubjectListComponent implements OnInit {
 
   displayedColumns: string[] = ['name', 'lectures'];
   dataSource = new MatTableDataSource<object>();
-  constructor(public dialogRef: MatDialogRef<SubjectListComponent>) { }
+  subjectInfo;
+  isLoad = false;
+
+  constructor(private userService: UserService, public dialogRef: MatDialogRef<SubjectListComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
-    this.dataSource.data = [
-    {name: 'ghbjmkl,gvhbjmkl,ghjmkl', lectures: ['Попова Юля Борисовна', 'Руденя Александра Сергеевна']},
-    {name: 'ghbjmkl,gvhbjmkl,gjmkl', lectures: ['Попова Юля Борисовна', 'Руденя Александра Сергеевна']},
-    {name: 'ghbjmkl,gvhbjmkl,ghjmkl', lectures: ['Попова Юля Борисовна', 'Руденя Александра Сергеевна']}
-  ];
+    this.loadData(this.data);
+  }
+
+  loadData(studentId) {
+    this.userService.getListOfSubjectsByStudentId(studentId).subscribe( result => {
+      this.subjectInfo = result;
+      this.isLoad = true;
+    });
   }
 
 }

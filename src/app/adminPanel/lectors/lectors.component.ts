@@ -6,6 +6,8 @@ import { ProfessorService } from 'src/app/service/professor.service';
 import { DeleteItemComponent } from '../modal/delete-person/delete-person.component';
 import { EditLectorComponent } from '../modal/edit-lector/edit-lector.component';
 import { ListOfGroupsComponent } from '../modal/list-of-groups/list-of-groups.component';
+import { StatisticComponent } from '../modal/statistic/statistic.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lectors',
@@ -23,7 +25,7 @@ export class LectorsComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   isDelete = false;
 
-  constructor(private dialog: MatDialog, private professorService: ProfessorService) { }
+  constructor(private dialog: MatDialog, private professorService: ProfessorService, private router: Router) { }
 
   ngOnInit(): void {
     this.dataSource.paginator = this.paginator;
@@ -33,6 +35,10 @@ export class LectorsComponent implements OnInit {
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  navigateToProfile(login) {
+    this.router.navigate(['admin/profile', login]);
   }
 
   deleteProfessor(id) {
@@ -47,31 +53,33 @@ export class LectorsComponent implements OnInit {
   openDialogEdit(dataLector) {
     console.log(dataLector);
     const dialogRef = this.dialog.open(EditLectorComponent, {
-      data: {
-        data: dataLector
-      }
+      data: dataLector
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
+        console.log(result.data);
         this.editLector(result.data);
       }
     });
   }
 
-  openListOfGroup(element) {
+  openListOfGroup(lectorId) {
     const dialogRef = this.dialog.open( ListOfGroupsComponent, {
-      data: {
-        data: element
-      }
+      data: lectorId
+    });
+    dialogRef.afterClosed();
+  }
+
+  openDiagram(userId) {
+    const dialogRef = this.dialog.open(StatisticComponent, {
+      data: userId
     });
     dialogRef.afterClosed();
   }
 
   saveProfessor() {
     const dialogRef = this.dialog.open(LectorModalComponent, {
-      data: {
-        data: this.dataLector
-      }
+      data:  this.dataLector
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {

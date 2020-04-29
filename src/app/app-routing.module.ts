@@ -15,6 +15,7 @@ import { AdminGenerateComponent } from './adminPanel/admin-generate/admin-genera
 import { FilesComponent } from './adminPanel/files/files.component';
 import { MessagesComponent } from './adminPanel/messages/messages.component';
 import { GroupNotFoundComponent } from './control/group-not-found/group-not-found.component';
+import { ProfileComponent } from './adminPanel/profile/profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -30,7 +31,8 @@ const routes: Routes = [
       { path: 'students', component: StudentsComponent },
       { path: 'groups', component: GroupComponent },
       { path: 'files', component: FilesComponent},
-      { path: 'messages', component: MessagesComponent}
+      { path: 'messages', component: MessagesComponent},
+      { path: 'profile/:login', component: ProfileComponent },
     ]
   },
   {

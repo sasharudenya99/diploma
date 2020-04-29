@@ -12,6 +12,8 @@ import { ResetThePasswordComponent } from './reset-the-password/reset-the-passwo
 import { DeleteItemComponent } from './modal/delete-person/delete-person.component';
 import { EditLectorComponent } from './modal/edit-lector/edit-lector.component';
 
+import {MatCardModule} from '@angular/material/card';
+import { GoogleChartsModule } from 'angular-google-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule, MatButtonModule, MatToolbarModule, MatInputModule, MatTableModule, MatPaginatorModule } from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
@@ -38,6 +40,10 @@ import { MessagesComponent } from './messages/messages.component';
 import { SendMessageComponent } from './modal/send-message/send-message.component';
 import {MatTabsModule, MAT_TABS_CONFIG} from '@angular/material/tabs';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { StatisticComponent } from './modal/statistic/statistic.component';
+import { ProfileComponent } from './profile/profile.component';
+import {MatListModule} from '@angular/material/list';
+import { MessageDetailComponent } from './modal/message-detail/message-detail.component';
 
 @NgModule({
   declarations: [
@@ -60,9 +66,13 @@ import {MatExpansionModule} from '@angular/material/expansion';
     ListOfStudentsComponent,
     EditStudentComponent,
     MessagesComponent,
-    SendMessageComponent
+    SendMessageComponent,
+    StatisticComponent,
+    ProfileComponent,
+    MessageDetailComponent
   ],
   imports: [
+    MatListModule,
     FormsModule,
     BrowserModule,
     BrowserAnimationsModule,
@@ -86,11 +96,13 @@ import {MatExpansionModule} from '@angular/material/expansion';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatTabsModule,
-    MatExpansionModule
+    MatExpansionModule,
+    GoogleChartsModule,
+    MatCardModule
   ],
   entryComponents: [LectorModalComponent, TableForStudentsComponent, AddGroupComponent,
     DeleteItemComponent, EditLectorComponent, FilesTableComponent, SubjectListComponent, ListOfGroupsComponent,
-    ListOfStudentsComponent, EditStudentComponent, SendMessageComponent ],
+    ListOfStudentsComponent, EditStudentComponent, SendMessageComponent, StatisticComponent, MessageDetailComponent ],
   providers: [{provide: MAT_CHECKBOX_CLICK_ACTION, useValue: 'check'},
   {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {}},
   { provide: MAT_TABS_CONFIG, useValue: { animationDuration: '200ms' } }],
@@ -106,7 +118,10 @@ import {MatExpansionModule} from '@angular/material/expansion';
     ResetThePasswordComponent,
     DeleteItemComponent,
     EditLectorComponent,
-    SendMessageComponent
+    SendMessageComponent,
+    StatisticComponent,
+    ProfileComponent,
+    MessageDetailComponent
   ]
 })
 export class AdminModule {}

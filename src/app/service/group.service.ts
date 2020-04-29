@@ -1,7 +1,7 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import { Observable } from 'rxjs';
-import { Group } from '../model/group';
+import { Group, LecturerGroup } from '../model/group';
 import { StudentByGroup } from '../model/student';
 
 @Injectable({
@@ -9,8 +9,8 @@ import { StudentByGroup } from '../model/student';
 })
 export class GroupService {
 
-    api = 'http://localhost:6478/Administration/';
-    apiStudent = 'http://localhost:6478/Services/CoreService.svc/';
+    api = '/Administration/';
+    apiStudent = '/Services/CoreService.svc/';
 
     constructor(private http: HttpClient) {
     }
@@ -37,6 +37,10 @@ export class GroupService {
 
     editGroup(group): Observable<Group> {
         return this.http.post<Group>(this.api + 'EditGroup', group);
+    }
+
+    getListOfGroupsByLecturerId(lectureId): Observable<LecturerGroup> {
+        return this.http.get<LecturerGroup>(this.api + 'ListOfGroupsByLecturerJson/' + lectureId);
     }
 
 }
